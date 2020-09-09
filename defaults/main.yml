@@ -1,0 +1,11 @@
+---
+acng_bindaddress: 0.0.0.0
+acng_port: 3142
+acng_cache_dir: /var/cache/apt-cacher-ng
+acng_log_dir: /var/log/apt-cacher-ng
+acng_use_proxy: false
+acng_proxy: ""
+
+acng_ExThreshold: 4
+acng_ReuseConnections: 0
+acng_PassThroughPattern: '.*'

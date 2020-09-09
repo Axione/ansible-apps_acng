@@ -1,0 +1,44 @@
+---
+- name: "Check for apt-cacher-ng executable file"
+  stat:
+    path: '/usr/sbin/apt-cacher-ng'
+  changed_when: false
+  register: acng_binary
+
+- when: not acng_binary.stat.exists
+  block:
+    - name: "Install apt-cacher-ng package"
+      apt:
+        name: apt-cacher-ng
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: "Create CacheDir"
+      file:
+        path: "{{ acng_cache_dir }}"
+        owner: apt-cacher-ng
+        group: apt-cacher-ng
+        mode: 0755
+        state: directory
+
+    - name: "Remove /etc/apt-cacher-ng/zz_debconf.conf"
+      file:
+        path: /etc/apt-cacher-ng/zz_debconf.conf
+        state: absent
+
+- name: "Enable apt-cacher-ng on boot"
+  service:
+    name: apt-cacher-ng
+    state: started
+    enabled: true
+
+- name: "Deploy acng.conf"
+  template:
+    src: acng.conf.j2
+    dest: "/etc/apt-cacher-ng/acng.conf"
+    owner: apt-cacher-ng
+    group: apt-cacher-ng
+    mode: 0640
+  notify:
+    - restart apt-cacher-ng
