@@ -3,7 +3,7 @@
 
 ## Description
 
-[![Build Status](https://travis-ci.com/lotusnoir/apps_acng.svg?branch=master)](https://travis-ci.com/lotusnoir/apps_acng)[![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)[![Ansible Role](https://img.shields.io/badge/ansible%20role-apps__acng-blue)](https://galaxy.ansible.com/lotusnoir/apps_acng/)[![GitHub Version](https://img.shields.io/badge/version-latest-blue)](https://github.com/lotusnoir/apps_acng/tags)
+[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_acng.svg?branch=master)](https://travis-ci.com/lotusnoir/ansible-apps_acng)[![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)[![Ansible Role](https://img.shields.io/badge/ansible%20role-apps__acng-blue)](https://galaxy.ansible.com/lotusnoir/ansible-apps_acng/)[![GitHub Version](https://img.shields.io/badge/version-latest-blue)](https://github.com/lotusnoir/ansible-apps_acng/tags)
 
 Deploy apt-cacher-ng cache system using ansible.
 
@@ -33,7 +33,7 @@ none
 	  become_method: sudo
 	  gather_facts: yes
 	  roles:
-	    - role: apps_acng
+	    - role: ansible-apps_acng
 	  vars:
         acng_cache_dir: "/data/apt-cacher/"
         acng_use_proxy: true
