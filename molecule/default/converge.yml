@@ -10,7 +10,7 @@
       changed_when: false
 
   roles:
-    - role: ansible-apps_acng
+    - role: apps_acng
 
   vars:
     nodejs_install_npm_user: root
