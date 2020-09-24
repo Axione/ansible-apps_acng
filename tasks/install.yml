@@ -27,12 +27,6 @@
         path: /etc/apt-cacher-ng/zz_debconf.conf
         state: absent
 
-- name: "Enable apt-cacher-ng on boot"
-  service:
-    name: apt-cacher-ng
-    state: started
-    enabled: true
-
 - name: "Deploy acng.conf"
   template:
     src: acng.conf.j2
@@ -42,3 +36,11 @@
     mode: 0640
   notify:
     - restart apt-cacher-ng
+
+- name: "Start and enable apt-cacher-ng"
+  service:
+    name: apt-cacher-ng
+    state: started
+    enabled: true
+
+
