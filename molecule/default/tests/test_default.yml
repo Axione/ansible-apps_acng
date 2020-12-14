@@ -1,0 +1,18 @@
+---
+file:
+  /etc/apt-cacher-ng/acng.conf:
+    exists: true
+    mode: "0640"
+    owner: apt-cacher-ng
+    group: apt-cacher-ng
+
+service:
+  apt-cacher-ng:
+    enabled: true
+    running: true
+
+port:
+  tcp:3142:
+    listening: true
+    ip:
+      - '0.0.0.0'

@@ -3,7 +3,11 @@
 
 ## Description
 
-[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_acng.svg?branch=master)](https://travis-ci.com/lotusnoir/ansible-apps_acng)[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen)](https://opensource.org/licenses/Apache-2.0)[![Ansible Role](https://img.shields.io/badge/ansible%20role-apps__acng-blue)](https://galaxy.ansible.com/lotusnoir/ansible-apps_acng/)[![GitHub Version](https://img.shields.io/badge/version-latest-blue)](https://github.com/lotusnoir/ansible-apps_acng/tags)
+[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_acng.svg?branch=master?style=flat)](https://travis-ci.com/lotusnoir/ansible-apps_acng)
+[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
+[![Ansible Role](https://img.shields.io/badge/galaxy-apps_acng-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_acng) 
+[![GitHub tag](https://img.shields.io/badge/version-1.0.0-blue?style=flat)](https://github.com/lotusnoir/ansible-apps_acng/releases/tag/1.0.0)
+
 
 Deploy apt-cacher-ng cache system using ansible.
 
