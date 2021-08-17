@@ -10,7 +10,7 @@ galaxy_info:
     - name: "Ubuntu"
       versions:
         - "focal"
-        - "xenial"
+        - "bionic"
     - name: "Debian"
       versions:
         - "buster"
