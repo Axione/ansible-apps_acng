@@ -6,6 +6,6 @@ acng_log_dir: /var/log/apt-cacher-ng
 acng_use_proxy: false
 acng_proxy: ""
 
-acng_ExThreshold: 4
-acng_ReuseConnections: 0
-acng_PassThroughPattern: '.*'
+acng_exthreshold: 4
+acng_reuseconnections: 0
+acng_passthroughpattern: '.*'
