@@ -1,18 +1,13 @@
-# Ansible Role: apps_acng
+# apps_acng
 
 ## Description
 
-[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
-[![Ansible Role](https://img.shields.io/badge/galaxy-apps_alerta-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_alerta)
-![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-apps_acng?color=orange&style=flat)
-![Ansible Quality Score](https://img.shields.io/ansible/quality/52300)
-[![downloads](https://img.shields.io/ansible/role/d/52300)](https://galaxy.ansible.com/lotusnoir/apps_alerta)
+[![Galaxy Role](https://img.shields.io/badge/galaxy-apps_alerta-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_alerta)
 [![Version](https://img.shields.io/github/release/lotusnoir/ansible-apps_acng.svg)](https://github.com/lotusnoir/ansible-apps_acng/releases/latest)
-
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_acng&metric=alert_status)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_acng)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_acng&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_acng)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_acng&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_acng)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_acng&metric=security_rating)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_acng)
+![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-apps_acng?color=orange&style=flat)
+[![downloads](https://img.shields.io/ansible/role/d/52300)](https://galaxy.ansible.com/lotusnoir/apps_alerta)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/52300)
+[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
 
 
 Deploy apt-cacher-ng cache system using ansible.
@@ -45,9 +40,9 @@ none
 	  roles:
 	    - role: ansible-apps_acng
 	  vars:
-        acng_cache_dir: "/data/apt-cacher/"
-        acng_use_proxy: true
-        acng_proxy: "{{ http_proxy }}"
+            acng_cache_dir: "/data/apt-cacher/"
+            acng_use_proxy: true
+            acng_proxy: "{{ http_proxy }}"
 	  environment: 
 	    http_proxy: "{{ http_proxy }}"
 	    https_proxy: "{{ https_proxy }}"
