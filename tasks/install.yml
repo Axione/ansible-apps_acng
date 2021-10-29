@@ -8,11 +8,10 @@
 - when: not acng_binary.stat.exists
   block:
     - name: Install apt-cacher-ng package
-      apt:
+      package:
         name: apt-cacher-ng
         state: present
         update_cache: true
-        cache_valid_time: 3600
 
     - name: Create CacheDir
       file:
