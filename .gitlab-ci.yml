@@ -140,6 +140,10 @@ ansible-lint:
 molecule:
   stage: test
   image: lotusnoir/molecule_play
+  services:
+    - docker:dind
+  variables:
+    PY_COLORS: 1
   needs:
     - yamllint
     - ansible-lint
