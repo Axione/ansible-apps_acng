@@ -5,4 +5,4 @@
   any_errors_fatal: true
 
   roles:
-    - ansible-apps_acng
+    - role: ansible-apps_acng
