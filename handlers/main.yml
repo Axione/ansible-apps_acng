@@ -1,5 +1,5 @@
 ---
 - name: restart apt-cacher-ng
-  service:
+  ansible.builtin.service:
     name: apt-cacher-ng
     state: restarted

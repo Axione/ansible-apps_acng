@@ -1,20 +1,21 @@
 ---
 - name: Check for apt-cacher-ng executable file
-  stat:
+  ansible.builtin.stat:
     path: '/usr/sbin/apt-cacher-ng'
   changed_when: false
   register: acng_binary
 
-- when: not acng_binary.stat.exists
+- name: Tasks when acng is not installed
+  when: not acng_binary.stat.exists
   block:
     - name: Install apt-cacher-ng package
-      package:
+      ansible.builtin.package:
         name: apt-cacher-ng
         state: present
         update_cache: true
 
     - name: Create CacheDir
-      file:
+      ansible.builtin.file:
         path: "{{ acng_cache_dir }}"
         owner: apt-cacher-ng
         group: apt-cacher-ng
@@ -22,12 +23,12 @@
         state: directory
 
     - name: Remove /etc/apt-cacher-ng/zz_debconf.conf
-      file:
+      ansible.builtin.file:
         path: '/etc/apt-cacher-ng/zz_debconf.conf'
         state: absent
 
 - name: Deploy acng.conf
-  template:
+  ansible.builtin.template:
     src: 'acng.conf.j2'
     dest: '/etc/apt-cacher-ng/acng.conf'
     owner: apt-cacher-ng
@@ -37,7 +38,7 @@
     - restart apt-cacher-ng
 
 - name: Start and enable apt-cacher-ng
-  systemd:
+  ansible.builtin.systemd:
     name: apt-cacher-ng
     state: started
     enabled: true
