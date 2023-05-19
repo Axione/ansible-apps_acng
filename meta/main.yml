@@ -14,8 +14,11 @@ galaxy_info:
         - "jammy"
     - name: "Debian"
       versions:
-        - "bullseye"
         - "buster"
+        - "bullseye"
+    - name: "OracleLinux"
+      versions:
+        - "9"
 
   galaxy_tags:
     - apt
