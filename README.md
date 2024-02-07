@@ -7,6 +7,18 @@
 [![Ansible Quality Score](https://img.shields.io/ansible/quality/56111)](https://galaxy.ansible.com/lotusnoir/apps_acng)
 [![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Description](#description)
+- [Requirements](#requirements)
+- [Role variables](#role-variables)
+- [Examples](#examples)
+- [License](#license)
+- [Author Information](#author-information)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Description
 
 Install and configure apt-cacher-ng
@@ -27,10 +39,6 @@ See [variables](/defaults/main.yml) for more details.
           gather_facts: true
           roles:
             - role: ansible-apps_acng
-          vars:
-            acng_cache_dir: "/data/apt-cacher/"
-            acng_use_proxy: false
-
 
 
 ## License

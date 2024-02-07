@@ -1,5 +1,5 @@
-# {{ ansible_managed }} 
-#
+{{ ansible_managed | comment }}
+
 # IMPORTANT NOTE:
 #
 # THIS FILE IS MAYBE JUST ONE OF MANY CONFIGURATION FILES IN THIS DIRECTORY.
@@ -418,7 +418,7 @@ LocalDirs: acng-doc /usr/share/doc/apt-cacher-ng
 # sites (https proxying). The string is a regular expression which should cover
 # the server name with port and must be correctly formated and terminated.
 # Examples:
-PassThroughPattern: {{ acng_passthroughpattern }} 
+PassThroughPattern: {{ acng_passthroughpattern }}
 
 # PassThroughPattern: private-ppa\.launchpad\.net:443$
 # PassThroughPattern: .* # this would allow CONNECT to everything
