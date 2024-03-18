@@ -35,7 +35,7 @@
     group: apt-cacher-ng
     mode: 0640
   notify:
-    - restart apt-cacher-ng
+    - Restart apt-cacher-ng
 
 - name: Start and enable apt-cacher-ng
   ansible.builtin.systemd:

@@ -12,6 +12,13 @@ variables:
 ######################################################
 # RUN MOLECULE FOR EACH DISTRIB
 ######################################################
+molecule_ubuntu18:
+  stage: molecule
+  image: lotusnoir/molecule_play
+  variables:
+    MOLECULE_DOCKER_COMMAND: "--cap-add NET_ADMIN"
+  script:
+    - MOLECULE_DISTRIB=ubuntu18 molecule test
 molecule_ubuntu22:
   stage: molecule
   image: lotusnoir/molecule_play
@@ -24,13 +31,6 @@ molecule_ubuntu20:
     MOLECULE_DOCKER_COMMAND: "--cap-add NET_ADMIN"
   script:
     - MOLECULE_DISTRIB=ubuntu20 molecule test
-molecule_ubuntu18:
-  stage: molecule
-  image: lotusnoir/molecule_play
-  variables:
-    MOLECULE_DOCKER_COMMAND: "--cap-add NET_ADMIN"
-  script:
-    - MOLECULE_DISTRIB=ubuntu18 molecule test
 molecule_debian10:
   stage: molecule
   image: lotusnoir/molecule_play
@@ -59,9 +59,9 @@ changelog:
   stage: changes
   image: node:19
   needs:
+    - molecule_ubuntu18
     - molecule_ubuntu22
     - molecule_ubuntu20
-    - molecule_ubuntu18
     - molecule_debian10
     - molecule_debian11
     - molecule_debian12
