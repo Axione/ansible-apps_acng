@@ -298,7 +298,10 @@ ExThreshold: {{ acng_exthreshold }}
 # Example usecase: all Ubuntu stuff comes from a local mirror (specified as
 # backend), don't cache it again:
 # DontCacheResolved: ubuntumirror.local.net
-#
+{% if acng_dontcacheresolved is defined and acng_dontcacheresolved | length > 0 %}
+DontCacheResolved: {{ acng_dontcacheresolved }}
+{% endif %}
+
 # DontCache directive sets (overrides) both, DontCacheResolved and
 # DontCacheRequested.  Provided for convenience, see those directives for
 # details.

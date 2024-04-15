@@ -9,3 +9,4 @@ acng_proxy: ""
 acng_exthreshold: 4
 acng_reuseconnections: 0
 acng_passthroughpattern: '.*'
+acng_dontcacheresolved: ""
