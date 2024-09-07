@@ -23,7 +23,7 @@
         path: "{{ acng_cache_dir }}"
         owner: apt-cacher-ng
         group: apt-cacher-ng
-        mode: 0755
+        mode: '0755'
         state: directory
 
     - name: Remove /etc/apt-cacher-ng/zz_debconf.conf
@@ -37,7 +37,7 @@
     dest: '/etc/apt-cacher-ng/acng.conf'
     owner: apt-cacher-ng
     group: apt-cacher-ng
-    mode: 0640
+    mode: '0640'
   notify:
     - Restart apt-cacher-ng
 
