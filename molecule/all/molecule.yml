@@ -13,6 +13,7 @@ scenario:
     - idempotence
     # - verify
     - destroy
+
 platforms:
   - name: apps-acng-ubuntu20
     image: lotusnoir/ansible_molecule_test_images:ubuntu20
@@ -22,6 +23,8 @@ platforms:
     capabilities: ["NET_ADMIN"]
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - python3
   - name: apps-acng-ubuntu22
     image: lotusnoir/ansible_molecule_test_images:ubuntu22
     pre_build_image: true
@@ -40,22 +43,6 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     groups:
       - python3
-  - name: apps-acng-debian10
-    image: lotusnoir/ansible_molecule_test_images:debian10
-    pre_build_image: true
-    cgroupns_mode: host
-    privileged: true
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-  - name: apps-acng-debian11
-    image: lotusnoir/ansible_molecule_test_images:debian11
-    pre_build_image: true
-    cgroupns_mode: host
-    privileged: true
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:rw
-    groups:
-      - python3
   - name: apps-acng-debian12
     image: lotusnoir/ansible_molecule_test_images:debian12
     pre_build_image: true
@@ -65,8 +52,8 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     groups:
       - python3
-  - name: apps-acng-rocky9
-    image: lotusnoir/ansible_molecule_test_images:rocky9
+  - name: apps-acng-debian11
+    image: lotusnoir/ansible_molecule_test_images:debian11
     pre_build_image: true
     cgroupns_mode: host
     privileged: true
@@ -74,8 +61,17 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:rw
     groups:
       - python3
-  - name: apps-acng-oraclelinux9
-    image: lotusnoir/ansible_molecule_test_images:oraclelinux9
+  - name: apps-acng-debian10
+    image: lotusnoir/ansible_molecule_test_images:debian10
+    pre_build_image: true
+    cgroupns_mode: host
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    groups:
+      - python3
+  - name: apps-acng-debiantrixie
+    image: lotusnoir/ansible_molecule_test_images:debiantrixie
     pre_build_image: true
     cgroupns_mode: host
     privileged: true
@@ -89,6 +85,17 @@ provisioner:
   connection_options:
     ansible_remote_tmp: /tmp
     ansible_python_interpreter: auto_silent
+  config_options:
+    defaults:
+      roles_path: "${HOME}/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:$MOLECULE_PROJECT_DIRECTORY/.."
+      callbacks_enabled: timer, profile_tasks, profile_roles
+      verbosity: 3
+      forks: 20
+      host_key_checking: false
+    ssh_connection:
+      pipelining: true
+      ssh_args: -o ControlMaster=auto -o ControlPersist=600s
+  log: true
   playbooks:
     prepare: prepare.yml
     converge: playbook.yml
@@ -100,6 +107,8 @@ provisioner:
       bullseye:
         ansible_python_interpreter: "/usr/bin/python3.9"
       bookworm:
+        ansible_python_interpreter: "/usr/bin/python3.9"
+      trixie:
         ansible_python_interpreter: "/usr/bin/python3.9"
 
 verifier:

@@ -2,7 +2,7 @@
 galaxy_info:
   author: lotusnoir
   role_name: apps_acng
-  description: "Install and configure apt-cacher-ng"
+  description: "Install and configure apt-cacher-ng on Debian family"
   license: "Apache License, Version 2.0"
   min_ansible_version: "2.8"
 
@@ -17,12 +17,7 @@ galaxy_info:
         - "buster"
         - "bullseye"
         - "bookworm"
-    - name: "Rocky"
-      versions:
-        - "9"
-    - name: "OracleLinux"
-      versions:
-        - "9"
+        - "trixie"
 
   galaxy_tags:
     - apt
